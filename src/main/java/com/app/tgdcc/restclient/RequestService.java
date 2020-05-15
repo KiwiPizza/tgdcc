@@ -7,20 +7,18 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class RequestServcie {
+public class RequestService {
     List<EventListener> eventListeners = new ArrayList<>();
     RestTemplate restTemplate = new RestTemplate();
     private final String host;
     private final String accessToken;
 
-    public RequestServcie(String host, String accessToken) {
+    public RequestService(String host, String accessToken) {
         this.host = host;
         this.accessToken = accessToken;
     }

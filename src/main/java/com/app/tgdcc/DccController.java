@@ -2,14 +2,11 @@ package com.app.tgdcc;
 
 import com.app.tgdcc.dccutils.DccEvent;
 import com.app.tgdcc.restclient.EventListener;
-import com.app.tgdcc.restclient.RequestServcie;
+import com.app.tgdcc.restclient.RequestService;
 import com.app.tgdcc.restclient.SessionService;
 import com.app.tgdcc.telegram.updatehandlers.ChatHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -23,7 +20,7 @@ import java.util.*;
 public class DccController implements EventListener {
 
     SessionService logInService;
-    RequestServcie requestServcie;
+    RequestService requestService;
     ChatHandler groupHandlers;
     Timer eventPollingTimer = new Timer();
     public Set<DccEvent> activeEvents = new HashSet<>();
@@ -41,8 +38,8 @@ public class DccController implements EventListener {
         this.logInService = new SessionService("http://localhost:8080/","cc", "cc");
         logInService.POST_login();
         loadTelegramAPI();
-        this.requestServcie = new RequestServcie("http://localhost:8080/", logInService.getToken());
-        requestServcie.addEventListener(this);
+        this.requestService = new RequestService("http://localhost:8080/", logInService.getToken());
+        requestService.addEventListener(this);
         startEventPolling();
     }
 
@@ -88,7 +85,7 @@ public class DccController implements EventListener {
     public void startEventPolling(){
         eventPollingTimer.schedule(new TimerTask() {
             public void run() {
-                requestServcie.GET_AllActiveEvents();
+                requestService.GET_AllActiveEvents();
             }
         }, 0, 1000 * 5);
 
