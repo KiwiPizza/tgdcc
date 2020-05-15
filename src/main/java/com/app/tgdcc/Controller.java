@@ -28,32 +28,27 @@ public class Controller implements EventListener {
     LogInService logInService;
     RequestServcie requestServcie;
     private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
-    private List<DccEvent> events = new ArrayList<>();
+    private final List<DccEvent> events = new ArrayList<>();
 
     @GetMapping("/start")
     public void startConnection(){
             this.logInService = new LogInService("http://localhost:8080/","cc", "cc");
             logInService.login();
+            loadTgApi();
             retrieveEvents();
     }
 
 
-    public void retrieveEvents(){
-        this.requestServcie = new RequestServcie("http://localhost:8080/",logInService.getToken());
+    public void retrieveEvents() {
+        this.requestServcie = new RequestServcie("http://localhost:8080/", logInService.getToken());
         requestServcie.addEventListener(this);
         requestServcie.getAllEvents();
-
-    public Controller() {
-        loadTgApi();
-        this.logInService = new LogInService("http://localhost:8080","cc", "cc");
-        logInService.login();
-        this.requestServcie = new RequestServcie("http://localhost:8080",logInService.getToken());
-        requestServcie.getEvents();
     }
 
     @Override
     public void eventReceived(List<DccEvent> dccEvents) {
         events.addAll(dccEvents);
+        dccEvents.forEach(this::sendMessange);
     }
 
     @GetMapping("/getEvents")
@@ -66,11 +61,9 @@ public class Controller implements EventListener {
     }
 
     @GetMapping("/logout")
-    public String logout(){
+    public String logout() {
         logInService.logout();
         return "Logout successful";
-    public void eventReceived(List<DccEvent> dccEvent) {
-
     }
 
     public void sendMessange(DccEvent dccEvent){

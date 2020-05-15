@@ -933,3 +933,13 @@ javax.servlet.ServletException: Circular view path [error]: would dispatch back 
 2020-05-15 11:35:23.174  INFO 12340 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
 2020-05-15 11:35:23.284  INFO 12340 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.LogInService    : Login established
 2020-05-15 11:35:47.104  INFO 12340 --- [http-nio-8055-exec-5] com.app.tgdcc.restclient.LogInService    : Logout successful, status: 200 OK 
+2020-05-15 13:03:11.916  INFO 35544 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on DESKTOP-ANDREAS with PID 35544 (C:\Users\admin\IdeaProjects\tgdcc\target\classes started by admin in C:\Users\admin\IdeaProjects\tgdcc)
+2020-05-15 13:03:11.918  INFO 35544 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 13:03:12.363  INFO 35544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 13:03:12.368  INFO 35544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 13:03:12.369  INFO 35544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 13:03:12.445  INFO 35544 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 13:03:12.445  INFO 35544 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 504 ms
+2020-05-15 13:03:12.528  INFO 35544 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 13:03:12.817  INFO 35544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 13:03:12.819  INFO 35544 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.082 seconds (JVM running for 1.659)
