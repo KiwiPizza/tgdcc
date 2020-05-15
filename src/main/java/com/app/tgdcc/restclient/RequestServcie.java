@@ -11,6 +11,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class RequestServcie {
@@ -28,13 +29,13 @@ public class RequestServcie {
         eventListeners.add(eventListener);
     }
 
-    public void responseReceived(List<DccEvent> dccEvents){
+    public void responseReceived(HashSet<DccEvent> dccEvents){
         for (EventListener listener: eventListeners){
             listener.eventReceived(dccEvents);
         }
     }
 
-    public void getAllEvents(){
+    public void GET_AllActiveEvents(){
         String uri = "api/events";
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Authorization", "Bearer " + accessToken);

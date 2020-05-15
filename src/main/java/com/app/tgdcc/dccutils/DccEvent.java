@@ -6,11 +6,32 @@ public class DccEvent {
     @JsonProperty("EventId")
     private int eventId;
 
+    @JsonProperty("State")
+    private String eventState;
+
+    @JsonProperty("CategoryDescriptor")
+    private String eventCategory;
+
+    @JsonProperty("Cause")
+    private String eventCause;
+
     public DccEvent() {
     }
 
     public int getEventId() {
         return eventId;
+    }
+
+    public String getEventState() {
+        return eventState;
+    }
+
+    public String getEventCategory() {
+        return eventCategory;
+    }
+
+    public String getEventCause() {
+        return eventCause;
     }
 
     //Example

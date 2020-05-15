@@ -3,13 +3,16 @@ package com.app.tgdcc.dccutils;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
-public class DccEventList {
+public class DccEventList  {
 
     @JsonProperty("Events")
-    ArrayList<DccEvent> events;
+    HashSet<DccEvent> events;
 
-    public ArrayList<DccEvent> getEvents() {
+    public HashSet<DccEvent> getEvents() {
         return events;
     }
+
+
 }

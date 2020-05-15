@@ -3,17 +3,18 @@ package com.app.tgdcc.telegram.updatehandlers;
 
 
 import com.app.tgdcc.telegram.BotConfig;
+import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-public class GroupHandlers extends TelegramLongPollingBot {
+public class ChatHandler extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        //check if the update has a message
+        /*//check if the update has a message
         if(update.hasMessage()){
             Message message = update.getMessage();
 
@@ -24,7 +25,7 @@ public class GroupHandlers extends TelegramLongPollingBot {
                 String id = "-1001489343293";
                 SendMessage sendMessageRequest = new SendMessage();
                 sendMessageRequest.setChatId(id); //who should get the message? the sender from which we got the message...
-                sendMessageRequest.setText(" Temp: " + message.getMediaGroupId());
+                sendMessageRequest.setText("Groupe ID: " + message.getMediaGroupId());
 
                 try {
                     execute(sendMessageRequest); //at the end, so some magic and send the message ;)
@@ -32,7 +33,7 @@ public class GroupHandlers extends TelegramLongPollingBot {
                     //do some error handling
                 }
             }
-        }
+        }*/
 
 
 
@@ -47,4 +48,13 @@ public class GroupHandlers extends TelegramLongPollingBot {
     public String getBotToken() {
         return BotConfig.TOKENMYPROJECT;
     }
+
+    public void sendMessage(SendMessage message){
+        try {
+            execute(message); //at the end, so some magic and send the message ;)
+        } catch (TelegramApiException e) {
+            //do some error handling
+        }
+    }
+
 }

@@ -15,14 +15,18 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-public class LogInService {
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class SessionService {
     public String token;
     private final RestTemplate restTemplate = new RestTemplate();
     private final String host;
     private final HttpEntity<MultiValueMap<String, String>> request;
-    private static final Logger LOGGER = LoggerFactory.getLogger(LogInService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SessionService.class);
+    private final Timer heartBeatTimer = new Timer();
 
-    public LogInService(String host, String username, String password) {
+    public SessionService(String host, String username, String password) {
         this.host = host;
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", MediaType.APPLICATION_FORM_URLENCODED.toString());
@@ -34,25 +38,38 @@ public class LogInService {
         this.request = new HttpEntity<>(map, headers);
     }
 
-    public void login(){
+    public void POST_login(){
         try {
             TokenResponse response = restTemplate.postForObject(host + "api/token", request, TokenResponse.class);
             this.token = response.access_token;
+            keepSessionAlive();
             LOGGER.info("Login established");
         } catch (NullPointerException e){
             LOGGER.error("Could not access token! ..however you may need to try again", e.getCause());
         }
         }
 
-    public void logout(){
+    public void POST_logout(){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Authorization", "Bearer " + getToken());
-       LOGGER.info("Logout successful, status: {} ", restTemplate.exchange(host+"api/token", HttpMethod.DELETE,
+        heartBeatTimer.cancel();
+        LOGGER.info("Logout successful, status: {} ", restTemplate.exchange(host+"api/token", HttpMethod.DELETE,
                new HttpEntity<>(null,httpHeaders),String.class).getStatusCode());
     }
 
     public String getToken() {
         return token;
+    }
+
+    public void keepSessionAlive(){
+        heartBeatTimer.schedule(new TimerTask() {
+            public void run() {
+                HttpHeaders httpHeaders = new HttpHeaders();
+                httpHeaders.set("Authorization", "Bearer " + getToken());
+                LOGGER.info("Keep session alive: " + restTemplate.exchange(host+ "api/heartbeat" ,
+                        HttpMethod.POST,new HttpEntity<>(null,httpHeaders),String.class).getStatusCode());
+            }
+        }, 0, 1000 * 60);
     }
 
     private static class TokenResponse {

@@ -103,7 +103,7 @@ Caused by: org.springframework.web.client.ResourceAccessException: I/O error on 
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:748) ~[spring-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:674) ~[spring-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.web.client.RestTemplate.postForObject(RestTemplate.java:418) ~[spring-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
-	at com.app.tgdcc.restclient.LogInService.login(LogInService.java:39) ~[classes/:na]
+	at com.app.tgdcc.restclient.SessionService.login(LogInService.java:39) ~[classes/:na]
 	at com.app.tgdcc.Controller.<init>(Controller.java:19) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
@@ -232,7 +232,7 @@ Caused by: org.springframework.web.client.ResourceAccessException: I/O error on 
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:748) ~[spring-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:674) ~[spring-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.web.client.RestTemplate.postForObject(RestTemplate.java:418) ~[spring-web-5.2.6.RELEASE.jar:5.2.6.RELEASE]
-	at com.app.tgdcc.restclient.LogInService.login(LogInService.java:39) ~[classes/:na]
+	at com.app.tgdcc.restclient.SessionService.login(LogInService.java:39) ~[classes/:na]
 	at com.app.tgdcc.Controller.<init>(Controller.java:19) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
@@ -729,7 +729,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2020-05-15 10:55:57.961  INFO 7520 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2020-05-15 10:55:58.094  INFO 7520 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
 2020-05-15 10:55:58.109  INFO 7520 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.223 seconds (JVM running for 1.738)
-2020-05-15 10:55:58.250  INFO 7520 --- [main] com.app.tgdcc.restclient.LogInService    : Login established
+2020-05-15 10:55:58.250  INFO 7520 --- [main] com.app.tgdcc.restclient.SessionService    : Login established
 2020-05-15 11:02:02.736  INFO 8264 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 8264 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:02:02.736  INFO 8264 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:02:03.472  INFO 8264 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -740,7 +740,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2020-05-15 11:02:03.651  INFO 8264 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2020-05-15 11:02:03.816  INFO 8264 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
 2020-05-15 11:02:03.819  INFO 8264 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.387 seconds (JVM running for 1.98)
-2020-05-15 11:02:03.927  INFO 8264 --- [main] com.app.tgdcc.restclient.LogInService    : Login established
+2020-05-15 11:02:03.927  INFO 8264 --- [main] com.app.tgdcc.restclient.SessionService    : Login established
 2020-05-15 11:02:39.602  INFO 6052 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 6052 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:02:39.617  INFO 6052 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:02:40.265  INFO 6052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -751,7 +751,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2020-05-15 11:02:40.429  INFO 6052 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2020-05-15 11:02:40.570  INFO 6052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
 2020-05-15 11:02:40.570  INFO 6052 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.221 seconds (JVM running for 1.758)
-2020-05-15 11:02:40.695  INFO 6052 --- [main] com.app.tgdcc.restclient.LogInService    : Login established
+2020-05-15 11:02:40.695  INFO 6052 --- [main] com.app.tgdcc.restclient.SessionService    : Login established
 2020-05-15 11:06:51.401  INFO 5276 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 5276 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:06:51.417  INFO 5276 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:06:52.038  INFO 5276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -762,7 +762,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2020-05-15 11:06:52.216  INFO 5276 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2020-05-15 11:06:52.363  INFO 5276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
 2020-05-15 11:06:52.365  INFO 5276 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.218 seconds (JVM running for 1.721)
-2020-05-15 11:06:52.490  INFO 5276 --- [main] com.app.tgdcc.restclient.LogInService    : Login established
+2020-05-15 11:06:52.490  INFO 5276 --- [main] com.app.tgdcc.restclient.SessionService    : Login established
 2020-05-15 11:08:13.786  INFO 5696 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 5696 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:08:13.788  INFO 5696 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:08:14.422  INFO 5696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -773,7 +773,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2020-05-15 11:08:14.586  INFO 5696 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2020-05-15 11:08:14.734  INFO 5696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
 2020-05-15 11:08:14.734  INFO 5696 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.207 seconds (JVM running for 1.709)
-2020-05-15 11:08:14.838  INFO 5696 --- [main] com.app.tgdcc.restclient.LogInService    : Login established
+2020-05-15 11:08:14.838  INFO 5696 --- [main] com.app.tgdcc.restclient.SessionService    : Login established
 2020-05-15 11:10:59.679  INFO 11284 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 11284 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:10:59.679  INFO 11284 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:11:00.324  INFO 11284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -784,8 +784,8 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2020-05-15 11:11:00.492  INFO 11284 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2020-05-15 11:11:00.633  INFO 11284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
 2020-05-15 11:11:00.633  INFO 11284 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.218 seconds (JVM running for 1.72)
-2020-05-15 11:11:00.790  INFO 11284 --- [main] com.app.tgdcc.restclient.LogInService    : Login established
-2020-05-15 11:11:00.819  INFO 11284 --- [main] com.app.tgdcc.restclient.LogInService    : Logout successful, status: 200 OK 
+2020-05-15 11:11:00.790  INFO 11284 --- [main] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 11:11:00.819  INFO 11284 --- [main] com.app.tgdcc.restclient.SessionService    : Logout successful, status: 200 OK
 2020-05-15 11:14:41.142  INFO 2320 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 2320 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:14:41.142  INFO 2320 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:14:41.780  INFO 2320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -799,7 +799,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2020-05-15 11:15:03.112  INFO 2320 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-05-15 11:15:03.113  INFO 2320 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-05-15 11:15:03.118  INFO 2320 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2020-05-15 11:15:03.226  INFO 2320 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.LogInService    : Login established
+2020-05-15 11:15:03.226  INFO 2320 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
 2020-05-15 11:15:11.765 ERROR 2320 --- [http-nio-8055-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] threw exception
 
 javax.servlet.ServletException: Circular view path [error]: would dispatch back to the current handler URL [/error] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
@@ -874,7 +874,7 @@ javax.servlet.ServletException: Circular view path [error]: would dispatch back 
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.34.jar:9.0.34]
 	at java.base/java.lang.Thread.run(Thread.java:830) ~[na:na]
 
-2020-05-15 11:15:26.787  INFO 2320 --- [http-nio-8055-exec-5] com.app.tgdcc.restclient.LogInService    : Logout successful, status: 200 OK 
+2020-05-15 11:15:26.787  INFO 2320 --- [http-nio-8055-exec-5] com.app.tgdcc.restclient.SessionService    : Logout successful, status: 200 OK
 2020-05-15 11:17:51.667  INFO 12560 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 12560 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:17:51.667  INFO 12560 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:17:52.307  INFO 12560 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -888,8 +888,8 @@ javax.servlet.ServletException: Circular view path [error]: would dispatch back 
 2020-05-15 11:18:09.573  INFO 12560 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-05-15 11:18:09.574  INFO 12560 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-05-15 11:18:09.578  INFO 12560 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2020-05-15 11:18:09.697  INFO 12560 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.LogInService    : Login established
-2020-05-15 11:18:09.741  INFO 12560 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.LogInService    : Logout successful, status: 200 OK 
+2020-05-15 11:18:09.697  INFO 12560 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 11:18:09.741  INFO 12560 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Logout successful, status: 200 OK
 2020-05-15 11:19:37.574  INFO 7992 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 7992 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:19:37.574  INFO 7992 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:19:38.220  INFO 7992 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -903,7 +903,7 @@ javax.servlet.ServletException: Circular view path [error]: would dispatch back 
 2020-05-15 11:19:44.451  INFO 7992 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-05-15 11:19:44.452  INFO 7992 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-05-15 11:19:44.455  INFO 7992 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2020-05-15 11:19:44.566  INFO 7992 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.LogInService    : Login established
+2020-05-15 11:19:44.566  INFO 7992 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
 2020-05-15 11:32:50.397  INFO 13900 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 13900 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:32:50.400  INFO 13900 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:32:51.112  INFO 13900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -917,7 +917,7 @@ javax.servlet.ServletException: Circular view path [error]: would dispatch back 
 2020-05-15 11:32:55.297  INFO 13900 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-05-15 11:32:55.298  INFO 13900 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-05-15 11:32:55.303  INFO 13900 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2020-05-15 11:32:55.417  INFO 13900 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.LogInService    : Login established
+2020-05-15 11:32:55.417  INFO 13900 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
 2020-05-15 11:35:19.203  INFO 12340 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 12340 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
 2020-05-15 11:35:19.205  INFO 12340 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 11:35:19.844  INFO 12340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -931,8 +931,8 @@ javax.servlet.ServletException: Circular view path [error]: would dispatch back 
 2020-05-15 11:35:23.170  INFO 12340 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-05-15 11:35:23.170  INFO 12340 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-05-15 11:35:23.174  INFO 12340 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2020-05-15 11:35:23.284  INFO 12340 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.LogInService    : Login established
-2020-05-15 11:35:47.104  INFO 12340 --- [http-nio-8055-exec-5] com.app.tgdcc.restclient.LogInService    : Logout successful, status: 200 OK 
+2020-05-15 11:35:23.284  INFO 12340 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 11:35:47.104  INFO 12340 --- [http-nio-8055-exec-5] com.app.tgdcc.restclient.SessionService    : Logout successful, status: 200 OK
 2020-05-15 13:03:11.916  INFO 35544 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on DESKTOP-ANDREAS with PID 35544 (C:\Users\admin\IdeaProjects\tgdcc\target\classes started by admin in C:\Users\admin\IdeaProjects\tgdcc)
 2020-05-15 13:03:11.918  INFO 35544 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
 2020-05-15 13:03:12.363  INFO 35544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
@@ -943,3 +943,696 @@ javax.servlet.ServletException: Circular view path [error]: would dispatch back 
 2020-05-15 13:03:12.528  INFO 35544 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2020-05-15 13:03:12.817  INFO 35544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
 2020-05-15 13:03:12.819  INFO 35544 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.082 seconds (JVM running for 1.659)
+2020-05-15 13:04:21.782  INFO 8952 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 8952 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 13:04:21.782  INFO 8952 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 13:04:22.463  INFO 8952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 13:04:22.463  INFO 8952 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 13:04:22.463  INFO 8952 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 13:04:22.541  INFO 8952 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 13:04:22.541  INFO 8952 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 727 ms
+2020-05-15 13:04:22.661  INFO 8952 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 13:04:22.790  INFO 8952 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 13:04:22.790  INFO 8952 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.294 seconds (JVM running for 1.932)
+2020-05-15 13:04:28.540  INFO 8952 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 13:04:28.540  INFO 8952 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 13:04:28.540  INFO 8952 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2020-05-15 13:04:28.685  INFO 8952 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 13:04:45.229  INFO 8952 --- [http-nio-8055-exec-3] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 13:04:45.443 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:04:48.973 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:04:49.491 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:04:53.007 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:04:53.530 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:04:57.054 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:04:57.582 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:01.099 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:01.619 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:05.148 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:05.677 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:09.195 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:09.717 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:13.248 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:13.771 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:17.300 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:17.837 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:21.354 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:21.883 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:25.413 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:25.940 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:29.475 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:30.006 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:33.523 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:34.039 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:37.569 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:38.090 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:41.616 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:42.134 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:45.733 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:46.254 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:49.784 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:50.311 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:53.837 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:54.364 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:57.886 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:05:58.464 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:01.992 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:02.529 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:06.070 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:06.606 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:10.123 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:10.663 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:14.201 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:14.733 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:18.256 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:18.790 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:22.323 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:22.852 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:26.385 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:26.901 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:30.424 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:30.944 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:34.475 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:34.991 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:38.510 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:39.041 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:42.573 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:43.095 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:46.616 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:47.158 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:50.679 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:51.200 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:54.739 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:06:55.274 ERROR 8952 --- [TGDCC Telegram Connection] Telegram Bots Api                        : BOTSESSION
+
+org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates
+	at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119) ~[telegrambots-meta-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:256) ~[telegrambots-4.0.1.jar:na]
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:185) ~[telegrambots-4.0.1.jar:na]
+
+2020-05-15 13:12:44.540  INFO 9208 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 9208 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 13:12:44.540  INFO 9208 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 13:12:45.249  INFO 9208 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 13:12:45.249  INFO 9208 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 13:12:45.249  INFO 9208 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 13:12:45.335  INFO 9208 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 13:12:45.335  INFO 9208 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 749 ms
+2020-05-15 13:12:45.458  INFO 9208 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 13:12:45.613  INFO 9208 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 13:12:45.613  INFO 9208 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.368 seconds (JVM running for 1.99)
+2020-05-15 13:12:52.826  INFO 9208 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 13:12:52.827  INFO 9208 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 13:12:52.831  INFO 9208 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-05-15 13:12:52.934  INFO 9208 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 13:17:16.108  INFO 4432 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 4432 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 13:17:16.108  INFO 4432 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 13:17:16.791  INFO 4432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 13:17:16.791  INFO 4432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 13:17:16.791  INFO 4432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 13:17:16.891  INFO 4432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 13:17:16.891  INFO 4432 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 725 ms
+2020-05-15 13:17:16.993  INFO 4432 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 13:17:17.131  INFO 4432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 13:17:17.147  INFO 4432 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.315 seconds (JVM running for 1.963)
+2020-05-15 13:17:23.609  INFO 4432 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 13:17:23.610  INFO 4432 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 13:17:23.614  INFO 4432 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2020-05-15 13:17:23.719  INFO 4432 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 13:18:36.900  INFO 6920 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 6920 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 13:18:36.901  INFO 6920 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 13:18:37.561  INFO 6920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 13:18:37.561  INFO 6920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 13:18:37.561  INFO 6920 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 13:18:37.648  INFO 6920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 13:18:37.648  INFO 6920 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 716 ms
+2020-05-15 13:18:37.756  INFO 6920 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 13:18:37.901  INFO 6920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 13:18:37.901  INFO 6920 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.296 seconds (JVM running for 1.874)
+2020-05-15 13:18:42.846  INFO 6920 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 13:18:42.846  INFO 6920 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 13:18:42.852  INFO 6920 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-05-15 13:18:42.976  INFO 6920 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 13:18:49.882  INFO 6920 --- [http-nio-8055-exec-2] com.app.tgdcc.restclient.SessionService    : Login established
+2020-05-15 16:08:49.022  INFO 13104 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 13104 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 16:08:49.024  INFO 13104 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 16:08:49.824  INFO 13104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 16:08:49.834  INFO 13104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 16:08:49.834  INFO 13104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 16:08:49.974  INFO 13104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 16:08:49.975  INFO 13104 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 913 ms
+2020-05-15 16:08:50.019  WARN 13104 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dccController' defined in file [C:\Users\Siemens\IdeaProjects\tgdcc\target\classes\com\app\tgdcc\DccController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webController' defined in file [C:\Users\Siemens\IdeaProjects\tgdcc\target\classes\com\app\tgdcc\WebController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'dccController': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2020-05-15 16:08:50.022  INFO 13104 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-15 16:08:50.035  INFO 13104 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-05-15 16:08:50.040 ERROR 13104 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  dccController defined in file [C:\Users\Siemens\IdeaProjects\tgdcc\target\classes\com\app\tgdcc\DccController.class]
+↑     ↓
+|  webController defined in file [C:\Users\Siemens\IdeaProjects\tgdcc\target\classes\com\app\tgdcc\WebController.class]
+└─────┘
+
+
+2020-05-15 16:09:16.037  INFO 14176 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 14176 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 16:09:16.039  INFO 14176 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 16:09:16.773  INFO 14176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 16:09:16.780  INFO 14176 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 16:09:16.780  INFO 14176 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 16:09:16.865  INFO 14176 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 16:09:16.865  INFO 14176 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 781 ms
+2020-05-15 16:09:17.020  INFO 14176 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:09:17.225  INFO 14176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 16:09:17.230  INFO 14176 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.494 seconds (JVM running for 2.098)
+2020-05-15 16:09:32.840  INFO 14176 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 16:09:32.841  INFO 14176 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 16:09:32.847  INFO 14176 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-05-15 16:09:32.965  INFO 14176 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService  : Login established
+2020-05-15 16:09:33.205  INFO 14176 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Telegram bot successful registered
+2020-05-15 16:09:33.472 ERROR 14176 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Errornull
+2020-05-15 16:09:33.476  INFO 14176 --- [http-nio-8055-exec-1] com.app.tgdcc.WebController              : Start event service
+2020-05-15 16:09:47.835  INFO 14176 --- [http-nio-8055-exec-4] com.app.tgdcc.restclient.SessionService  : Login established
+2020-05-15 16:09:47.839  INFO 14176 --- [http-nio-8055-exec-4] com.app.tgdcc.DccController              : Telegram bot successful registered
+2020-05-15 16:09:47.933 ERROR 14176 --- [http-nio-8055-exec-4] com.app.tgdcc.DccController              : Errornull
+2020-05-15 16:09:47.935  INFO 14176 --- [http-nio-8055-exec-4] com.app.tgdcc.WebController              : Stop event service
+2020-05-15 16:20:18.101  INFO 3816 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 3816 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 16:20:18.110  INFO 3816 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 16:20:18.853  INFO 3816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 16:20:18.860  INFO 3816 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 16:20:18.860  INFO 3816 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 16:20:18.941  INFO 3816 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 16:20:18.942  INFO 3816 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 797 ms
+2020-05-15 16:20:19.071  INFO 3816 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:20:19.238  INFO 3816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 16:20:19.242  INFO 3816 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.436 seconds (JVM running for 2.078)
+2020-05-15 16:20:27.018  INFO 3816 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 16:20:27.019  INFO 3816 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 16:20:27.023  INFO 3816 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-05-15 16:20:27.141  INFO 3816 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService  : Login established
+2020-05-15 16:20:27.383  INFO 3816 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Telegram bot successful registered
+2020-05-15 16:20:27.646 ERROR 3816 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Errornull
+2020-05-15 16:20:27.649  INFO 3816 --- [http-nio-8055-exec-1] com.app.tgdcc.WebController              : Start event service
+2020-05-15 16:20:46.161  INFO 3816 --- [http-nio-8055-exec-3] com.app.tgdcc.restclient.SessionService  : Logout successful, status: 200 OK 
+2020-05-15 16:20:46.162  INFO 3816 --- [http-nio-8055-exec-3] com.app.tgdcc.WebController              : Stop event service
+2020-05-15 16:24:13.042  INFO 6956 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 6956 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 16:24:13.045  INFO 6956 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 16:24:13.831  INFO 6956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 16:24:13.841  INFO 6956 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 16:24:13.842  INFO 6956 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 16:24:13.974  INFO 6956 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 16:24:13.974  INFO 6956 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 884 ms
+2020-05-15 16:24:14.126  INFO 6956 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:24:14.286  INFO 6956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 16:24:14.289  INFO 6956 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.614 seconds (JVM running for 2.521)
+2020-05-15 16:24:21.822  INFO 6956 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 16:24:21.822  INFO 6956 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 16:24:21.827  INFO 6956 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-05-15 16:24:21.945  INFO 6956 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService  : Login established
+2020-05-15 16:24:21.970  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:24:22.203  INFO 6956 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Telegram bot successful registered
+2020-05-15 16:24:23.287 ERROR 6956 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Errornull
+2020-05-15 16:24:23.293  INFO 6956 --- [http-nio-8055-exec-1] com.app.tgdcc.WebController              : Start event service
+2020-05-15 16:25:53.876  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:25:53.881  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:25:58.879  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:26:03.881  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:26:08.881  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:26:13.881  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:26:59.536  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:26:59.539  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:27:12.956  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:27:17.955  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:27:22.956  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:27:27.955  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:27:32.955  INFO 6956 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:27:33.570  INFO 6956 --- [http-nio-8055-exec-4] com.app.tgdcc.restclient.SessionService  : Logout successful, status: 200 OK 
+2020-05-15 16:27:33.572  INFO 6956 --- [http-nio-8055-exec-4] com.app.tgdcc.WebController              : Stop event service
+2020-05-15 16:34:50.435  INFO 6956 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:35:56.236  INFO 12532 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 12532 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 16:35:56.238  INFO 12532 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 16:35:56.926  INFO 12532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 16:35:56.932  INFO 12532 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 16:35:56.933  INFO 12532 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 16:35:57.011  INFO 12532 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 16:35:57.012  INFO 12532 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 741 ms
+2020-05-15 16:35:57.124  INFO 12532 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:35:57.280  INFO 12532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 16:35:57.283  INFO 12532 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.319 seconds (JVM running for 1.859)
+2020-05-15 16:36:05.621  INFO 12532 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 16:36:05.622  INFO 12532 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 16:36:05.627  INFO 12532 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-05-15 16:36:05.738  INFO 12532 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService  : Login established
+2020-05-15 16:36:05.748  INFO 12532 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:36:05.963  INFO 12532 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Telegram bot successful registered
+2020-05-15 16:36:06.215 ERROR 12532 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Errornull
+2020-05-15 16:36:06.217  INFO 12532 --- [http-nio-8055-exec-1] com.app.tgdcc.WebController              : Start event service
+2020-05-15 16:36:10.741  INFO 12532 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:36:15.741  INFO 12532 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:36:20.742  INFO 12532 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:36:25.742  INFO 12532 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:36:30.745  INFO 12532 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:36:35.745  INFO 12532 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:36:40.249  INFO 12532 --- [http-nio-8055-exec-3] com.app.tgdcc.restclient.SessionService  : Logout successful, status: 200 OK 
+2020-05-15 16:36:40.251  INFO 12532 --- [http-nio-8055-exec-3] com.app.tgdcc.WebController              : Stop event service
+2020-05-15 16:47:41.802  INFO 14164 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 14164 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 16:47:41.803  INFO 14164 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 16:47:42.550  INFO 14164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 16:47:42.558  INFO 14164 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 16:47:42.558  INFO 14164 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 16:47:42.658  INFO 14164 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 16:47:42.659  INFO 14164 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 811 ms
+2020-05-15 16:47:42.805  INFO 14164 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:47:42.968  INFO 14164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 16:47:42.972  INFO 14164 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.534 seconds (JVM running for 2.396)
+2020-05-15 16:47:55.269  INFO 14164 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 16:47:55.270  INFO 14164 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 16:47:55.275  INFO 14164 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-05-15 16:47:55.395  INFO 14164 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService  : Login established
+2020-05-15 16:47:55.402  INFO 14164 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:47:55.657  INFO 14164 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Telegram bot successful registered
+2020-05-15 16:47:55.956 ERROR 14164 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Initialize TG API: Guice configuration errors:
+
+1) No implementation for org.telegram.telegrambots.meta.generics.BotSession was bound.
+  while locating org.telegram.telegrambots.meta.generics.BotSession
+
+1 error
+2020-05-15 16:47:55.962  INFO 14164 --- [http-nio-8055-exec-1] com.app.tgdcc.WebController              : Start event service
+2020-05-15 16:48:56.682  INFO 14164 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:50:34.969  INFO 14164 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:50:34.994  INFO 14164 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:50:39.639  INFO 9152 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on WIN-552LR7HSEG9 with PID 9152 (C:\Users\Siemens\IdeaProjects\tgdcc\target\classes started by Siemens in C:\Users\Siemens\IdeaProjects\tgdcc)
+2020-05-15 16:50:39.643  INFO 9152 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 16:50:40.337  INFO 9152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 16:50:40.345  INFO 9152 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 16:50:40.345  INFO 9152 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 16:50:40.426  INFO 9152 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 16:50:40.426  INFO 9152 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 748 ms
+2020-05-15 16:50:40.541  INFO 9152 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 16:50:40.688  INFO 9152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 16:50:40.691  INFO 9152 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.319 seconds (JVM running for 1.922)
+2020-05-15 16:51:05.101  INFO 9152 --- [http-nio-8055-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-15 16:51:05.102  INFO 9152 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-15 16:51:05.107  INFO 9152 --- [http-nio-8055-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-05-15 16:51:05.219  INFO 9152 --- [http-nio-8055-exec-1] com.app.tgdcc.restclient.SessionService  : Login established
+2020-05-15 16:51:05.225  INFO 9152 --- [Timer-1] com.app.tgdcc.restclient.SessionService  : Keep session alive: 200 OK
+2020-05-15 16:51:05.442  INFO 9152 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Telegram bot successful registered
+2020-05-15 16:51:05.683 ERROR 9152 --- [http-nio-8055-exec-1] com.app.tgdcc.DccController              : Initialize TG API: Guice configuration errors:
+
+1) No implementation for org.telegram.telegrambots.meta.generics.BotSession was bound.
+  while locating org.telegram.telegrambots.meta.generics.BotSession
+
+1 error
+2020-05-15 16:51:05.686  INFO 9152 --- [http-nio-8055-exec-1] com.app.tgdcc.WebController              : Start event service
+2020-05-15 16:51:27.978  INFO 9152 --- [http-nio-8055-exec-3] com.app.tgdcc.restclient.SessionService  : Logout successful, status: 200 OK 
+2020-05-15 16:51:27.979  INFO 9152 --- [http-nio-8055-exec-3] com.app.tgdcc.WebController              : Stop event service
