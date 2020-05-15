@@ -2,6 +2,7 @@ package com.app.tgdcc.restclient;
 
 
 import com.app.tgdcc.dccutils.DccEvent;
+import com.app.tgdcc.dccutils.DccEventList;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class RequestServcie {
     List<EventListener> eventListeners = new ArrayList<>();
-    RestTemplate restTemplate;
+    RestTemplate restTemplate = new RestTemplate();
     private final String host;
     private final String accessToken;
 
@@ -23,20 +24,22 @@ public class RequestServcie {
         this.accessToken = accessToken;
     }
 
+    public void addEventListener(EventListener eventListener){
+        eventListeners.add(eventListener);
+    }
+
     public void responseReceived(List<DccEvent> dccEvents){
         for (EventListener listener: eventListeners){
             listener.eventReceived(dccEvents);
         }
     }
 
-    public void getEvents(){
+    public void getAllEvents(){
         String uri = "api/events";
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Authorization", "Bearer " + accessToken);
-        //System.out.println(restTemplate.getForObject(host + uri,Object.class,request));
-        ResponseEntity<String> response = restTemplate.exchange(host + uri + "?api_key=cc%3Acc", HttpMethod.GET, new HttpEntity<>(null,httpHeaders), String.class);
-        System.out.println(response);
-
+        ResponseEntity<DccEventList> response = restTemplate.exchange(host + uri, HttpMethod.GET, new HttpEntity<>(null,httpHeaders), DccEventList.class);
+        responseReceived(response.getBody().getEvents());
     }
 
 }
