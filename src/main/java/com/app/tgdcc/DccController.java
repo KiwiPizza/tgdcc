@@ -1,7 +1,6 @@
 package com.app.tgdcc;
 
 import com.app.tgdcc.dccutils.DccEvent;
-import com.app.tgdcc.restclient.EventListener;
 import com.app.tgdcc.restclient.RequestService;
 import com.app.tgdcc.restclient.SessionService;
 import com.app.tgdcc.telegram.updatehandlers.ChatHandler;
@@ -28,9 +27,9 @@ public class DccController implements EventListener {
 
 
     @Override
-    public void eventReceived(HashSet<DccEvent> dccEvent) {
+    public void eventsReceived(HashSet<DccEvent> dccEvent) {
         dccEvent.removeAll(activeEvents);
-       // dccEvent.forEach(this::sendMessage);
+        // dccEvent.forEach(this::sendMessage);
         activeEvents.addAll(dccEvent);
     }
 

@@ -29,7 +29,7 @@ public class RequestService {
 
     public void responseReceived(HashSet<DccEvent> dccEvents){
         for (EventListener listener: eventListeners){
-            listener.eventReceived(dccEvents);
+            listener.eventsReceived(dccEvents);
         }
     }
 

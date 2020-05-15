@@ -1636,3 +1636,23 @@ The dependencies of some of the beans in the application context form a cycle:
 2020-05-15 16:51:05.686  INFO 9152 --- [http-nio-8055-exec-1] com.app.tgdcc.WebController              : Start event service
 2020-05-15 16:51:27.978  INFO 9152 --- [http-nio-8055-exec-3] com.app.tgdcc.restclient.SessionService  : Logout successful, status: 200 OK 
 2020-05-15 16:51:27.979  INFO 9152 --- [http-nio-8055-exec-3] com.app.tgdcc.WebController              : Stop event service
+2020-05-15 18:10:12.945  INFO 24272 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on DESKTOP-ANDREAS with PID 24272 (C:\Users\admin\IdeaProjects\tgdcc\target\classes started by admin in C:\Users\admin\IdeaProjects\tgdcc)
+2020-05-15 18:10:12.947  INFO 24272 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 18:10:13.454  INFO 24272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 18:10:13.459  INFO 24272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 18:10:13.459  INFO 24272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 18:10:13.526  INFO 24272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 18:10:13.526  INFO 24272 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 551 ms
+2020-05-15 18:10:13.615  INFO 24272 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 18:10:13.918  INFO 24272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 18:10:13.921  INFO 24272 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.161 seconds (JVM running for 1.772)
+2020-05-15 18:35:09.770  INFO 18280 --- [main] com.app.tgdcc.TgdccApplication           : Starting TgdccApplication on DESKTOP-ANDREAS with PID 18280 (C:\Users\admin\IdeaProjects\tgdcc\target\classes started by admin in C:\Users\admin\IdeaProjects\tgdcc)
+2020-05-15 18:35:09.771  INFO 18280 --- [main] com.app.tgdcc.TgdccApplication           : No active profile set, falling back to default profiles: default
+2020-05-15 18:35:10.267  INFO 18280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8055 (http)
+2020-05-15 18:35:10.272  INFO 18280 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-15 18:35:10.272  INFO 18280 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-05-15 18:35:10.347  INFO 18280 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-15 18:35:10.347  INFO 18280 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 550 ms
+2020-05-15 18:35:10.442  INFO 18280 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-15 18:35:10.775  INFO 18280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8055 (http) with context path ''
+2020-05-15 18:35:10.778  INFO 18280 --- [main] com.app.tgdcc.TgdccApplication           : Started TgdccApplication in 1.194 seconds (JVM running for 1.816)
