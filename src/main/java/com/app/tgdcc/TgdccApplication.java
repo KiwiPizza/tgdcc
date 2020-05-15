@@ -8,7 +8,6 @@ public class TgdccApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TgdccApplication.class, args);
-		Controller controller = new Controller();
 	}
 
 

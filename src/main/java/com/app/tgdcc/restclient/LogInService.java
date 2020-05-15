@@ -3,17 +3,17 @@ package com.app.tgdcc.restclient;
 
 
 
-import com.app.tgdcc.dccutils.DccEventList;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-
 
 public class LogInService {
     public String token;
@@ -31,18 +31,25 @@ public class LogInService {
         map.add("grant_type", "password");
         map.add("username", username);
         map.add("password", password);
-        this.request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
+        this.request = new HttpEntity<>(map, headers);
     }
 
-    public void login (){
+    public void login(){
         try {
-            this.token = restTemplate.postForObject(host + "/api/token", request, TokenResponse.class).access_token;
-            System.out.println("Token: " + this.token);
-
+            TokenResponse response = restTemplate.postForObject(host + "api/token", request, TokenResponse.class);
+            this.token = response.access_token;
+            LOGGER.info("Login established");
         } catch (NullPointerException e){
-            LOGGER.error("can't login.. ");
+            LOGGER.error("Could not access token! ..however you may need to try again", e.getCause());
         }
         }
+
+    public void logout(){
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set("Authorization", "Bearer " + getToken());
+       LOGGER.info("Logout successful, status: {} ", restTemplate.exchange(host+"api/token", HttpMethod.DELETE,
+               new HttpEntity<>(null,httpHeaders),String.class).getStatusCode());
+    }
 
     public String getToken() {
         return token;
