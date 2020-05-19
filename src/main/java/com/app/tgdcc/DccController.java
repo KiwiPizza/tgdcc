@@ -1,7 +1,8 @@
 package com.app.tgdcc;
 
 import com.app.tgdcc.dccutils.DccEvent;
-import com.app.tgdcc.restclient.RequestService;
+import com.app.tgdcc.restclient.EventListener;
+import com.app.tgdcc.restclient.EventService;
 import com.app.tgdcc.restclient.SessionService;
 import com.app.tgdcc.telegram.updatehandlers.ChatHandler;
 import org.slf4j.Logger;
@@ -19,25 +20,22 @@ import java.util.*;
 public class DccController implements EventListener {
 
     SessionService logInService;
-    RequestService requestService;
+    EventService requestService;
     ChatHandler groupHandlers;
     Timer eventPollingTimer = new Timer();
     public Set<DccEvent> activeEvents = new HashSet<>();
     private static final Logger LOGGER = LoggerFactory.getLogger(DccController.class);
 
-
     @Override
-    public void eventsReceived(HashSet<DccEvent> dccEvent) {
-        dccEvent.removeAll(activeEvents);
-        // dccEvent.forEach(this::sendMessage);
-        activeEvents.addAll(dccEvent);
+    public void eventsReceived(DccEvent dccEvent) {
+        sendMessage(dccEvent);
     }
 
     public void startService(){
         this.logInService = new SessionService("http://localhost:8080/","cc", "cc");
         logInService.POST_login();
         loadTelegramAPI();
-        this.requestService = new RequestService("http://localhost:8080/", logInService.getToken());
+        this.requestService = new EventService("http://localhost:8080/", logInService.getToken());
         requestService.addEventListener(this);
         startEventPolling();
     }
