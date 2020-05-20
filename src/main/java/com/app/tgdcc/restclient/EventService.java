@@ -12,7 +12,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+
+import javax.swing.event.ListDataEvent;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 public class EventService {
@@ -47,16 +51,31 @@ public class EventService {
         ResponseEntity<DccEventList> response = restTemplate.exchange(host + uri, HttpMethod.GET, new HttpEntity<>(null,httpHeaders), DccEventList.class);
         updateEventList(response.getBody());
     }
-    
+
+    //TODO Implement Subscription, replace polling!!
     public void updateEventList(DccEventList eventList){
         for(DccEvent event: eventList.getEvents()){
-            if(!eventRepository.existsByEventId(event.getEventId())) {
-                if((event.getEventState().equals(DccTypes.UNPROCESSED))){
+            if(!eventRepository.existsByEventId(event.getEventId()) &&
+              (event.getEventState().equals(DccTypes.UNPROCESSED))) {
                 notifyConsumer(event);
                 eventRepository.save(event);
                 LOGGER.info("New event sent, ID: {}", event.getEventId());
-                }
             }
         }
+        HashMap<Integer,DccEvent> sqlEventsUnprocessed = new HashMap<>();
+        eventRepository.findAllByEventState(DccTypes.UNPROCESSED).forEach(sqlEvent->{
+            sqlEventsUnprocessed.put(sqlEvent.getEventId(), sqlEvent);
+        });
+        for(DccEvent dccEvent : eventList.getEvents()){
+            sqlEventsUnprocessed.remove(dccEvent.getEventId());
+        }
+       for (DccEvent sqlEvent: sqlEventsUnprocessed.values()) {
+           eventRepository.delete(sqlEvent);
+           sqlEvent.setEventState(DccTypes.CLOSED);
+           eventRepository.save(sqlEvent);
+           notifyConsumer(sqlEvent);
+           LOGGER.info("Event closed, ID: {}", sqlEvent.getEventId());
+       }
     }
+
 }

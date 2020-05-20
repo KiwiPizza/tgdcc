@@ -20,7 +20,16 @@ public class DccEvent {
     private String eventCause;
 
     @JsonProperty("Id")
-    private String IdInternal;
+    private String idInternal;
+
+    @JsonProperty("SrcLocation")
+    private String srcLocation;
+
+    @JsonProperty("SrcDesignation")
+    private String srcDesignation;
+
+    @JsonProperty("SrcDescriptor")
+    private String srcDescriptor;
 
     public DccEvent() {
     }
@@ -29,7 +38,7 @@ public class DccEvent {
         return eventId;
     }
 
-    public void setEventId(int eventId) {
+    public void setEventId(Integer eventId) {
         this.eventId = eventId;
     }
 
@@ -58,11 +67,35 @@ public class DccEvent {
     }
 
     public String getIdInternal() {
-        return IdInternal;
+        return idInternal;
     }
 
     public void setIdInternal(String idInternal) {
-        IdInternal = idInternal;
+        this.idInternal = idInternal;
+    }
+
+    public String getSrcLocation() {
+        return srcLocation;
+    }
+
+    public void setSrcLocation(String srcLocation) {
+        this.srcLocation = srcLocation;
+    }
+
+    public String getSrcDesignation() {
+        return srcDesignation;
+    }
+
+    public void setSrcDesignation(String srcDesignation) {
+        this.srcDesignation = srcDesignation;
+    }
+
+    public String getSrcDescriptor() {
+        return srcDescriptor;
+    }
+
+    public void setSrcDescriptor(String srcDescriptor) {
+        this.srcDescriptor = srcDescriptor;
     }
 
     //Example

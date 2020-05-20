@@ -2,6 +2,7 @@ package com.app.tgdcc;
 
 import com.app.tgdcc.databaseconfig.EventRepository;
 import com.app.tgdcc.dccutils.DccEvent;
+import com.app.tgdcc.dccutils.DccTypes;
 import com.app.tgdcc.restclient.EventListener;
 import com.app.tgdcc.restclient.EventService;
 import com.app.tgdcc.restclient.SessionService;
@@ -13,8 +14,10 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.awt.*;
 import java.util.*;
 
 
@@ -28,6 +31,7 @@ public class DccController implements EventListener {
     public Set<DccEvent> activeEvents = new HashSet<>();
     private static final Logger LOGGER = LoggerFactory.getLogger(DccController.class);
     private final EventRepository eventRepository;
+    private final DccTypes types = new DccTypes();
 
 
     @Autowired
@@ -37,8 +41,7 @@ public class DccController implements EventListener {
 
     @Override
     public void eventReceived(DccEvent dccEvent) {
-        System.out.println(dccEvent.getEventId() + " sent with state:" + dccEvent.getEventState());
-        //sendMessage(dccEvent);
+        sendMessage(dccEvent);
     }
 
     public void startService(){
@@ -55,15 +58,23 @@ public class DccController implements EventListener {
         logInService.POST_logout();
     }
 
+
+    //TODO create message format with bold descriptors and german text for category and status
     public void sendMessage(DccEvent dccEvent){
         String ChatID = "-1001489343293";
         SendMessage sendMessageRequest = new SendMessage();
         sendMessageRequest.setChatId(ChatID);
         sendMessageRequest.setText(
-                "Event ID: " + dccEvent.getEventId() + "\n" +
-                "Priorität: " + dccEvent.getEventCategory() + "\n" +
-                "Status: " + dccEvent.getEventState() + "\n" +
-                "Grund: " + dccEvent.getEventCause()
+                "Event ID:" + "\n" +
+                 dccEvent.getEventId() + "\n" +
+                "Kategorie: " + "\n" +
+                dccEvent.getEventCategory() + "\n" +
+                "Status: " + "\n" +
+                types.getGermanTextForEventState().get(dccEvent.getEventState()) + "\n" +
+                "Grund: " + "\n" +
+                dccEvent.getEventCause() + "\n" +
+                "Quelle: " + "\n" +
+                dccEvent.getSrcLocation()
         );
         groupHandlers.sendMessage(sendMessageRequest);
 
