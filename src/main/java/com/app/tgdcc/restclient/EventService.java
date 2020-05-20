@@ -1,27 +1,33 @@
 package com.app.tgdcc.restclient;
 
 
+import com.app.tgdcc.databaseconfig.EventRepository;
 import com.app.tgdcc.dccutils.DccEvent;
 import com.app.tgdcc.dccutils.DccEventList;
+import com.app.tgdcc.dccutils.DccTypes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class EventService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventService.class);
     List<EventListener> eventListeners = new ArrayList<>();
-    HashMap<Integer, DccEvent> events = new HashMap<>();
     RestTemplate restTemplate = new RestTemplate();
     private final String host;
     private final String accessToken;
+    private final EventRepository eventRepository;
 
-    public EventService(String host, String accessToken) {
+    public EventService(String host, String accessToken, EventRepository eventRepository) {
         this.host = host;
         this.accessToken = accessToken;
+        this.eventRepository = eventRepository;
+
     }
 
     public void addEventListener(EventListener eventListener){
@@ -30,7 +36,7 @@ public class EventService {
 
     public void notifyConsumer(DccEvent dccEvent){
         for (EventListener listener: eventListeners){
-            listener.eventsReceived(dccEvent);
+            listener.eventReceived(dccEvent);
         }
     }
 
@@ -44,17 +50,13 @@ public class EventService {
     
     public void updateEventList(DccEventList eventList){
         for(DccEvent event: eventList.getEvents()){
-            if(!events.containsKey(event.getEventId())){
+            if(!eventRepository.existsByEventId(event.getEventId())) {
+                if((event.getEventState().equals(DccTypes.UNPROCESSED))){
                 notifyConsumer(event);
-            }else {
-             DccEvent existingEvent = events.get(event.getEventId());
-             if(!existingEvent.getEventState().equals(event.getEventState())){
-                 notifyConsumer(event);
-             }
+                eventRepository.save(event);
+                LOGGER.info("New event sent, ID: {}", event.getEventId());
+                }
             }
         }
-        
-        
     }
-
 }

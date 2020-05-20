@@ -1,5 +1,6 @@
 package com.app.tgdcc;
 
+import com.app.tgdcc.databaseconfig.EventRepository;
 import com.app.tgdcc.dccutils.DccEvent;
 import com.app.tgdcc.restclient.EventListener;
 import com.app.tgdcc.restclient.EventService;
@@ -7,6 +8,7 @@ import com.app.tgdcc.restclient.SessionService;
 import com.app.tgdcc.telegram.updatehandlers.ChatHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -20,23 +22,31 @@ import java.util.*;
 public class DccController implements EventListener {
 
     SessionService logInService;
-    EventService requestService;
+    EventService eventService;
     ChatHandler groupHandlers;
     Timer eventPollingTimer = new Timer();
     public Set<DccEvent> activeEvents = new HashSet<>();
     private static final Logger LOGGER = LoggerFactory.getLogger(DccController.class);
+    private final EventRepository eventRepository;
+
+
+    @Autowired
+    public DccController(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
+    }
 
     @Override
-    public void eventsReceived(DccEvent dccEvent) {
-        sendMessage(dccEvent);
+    public void eventReceived(DccEvent dccEvent) {
+        System.out.println(dccEvent.getEventId() + " sent with state:" + dccEvent.getEventState());
+        //sendMessage(dccEvent);
     }
 
     public void startService(){
         this.logInService = new SessionService("http://localhost:8080/","cc", "cc");
         logInService.POST_login();
         loadTelegramAPI();
-        this.requestService = new EventService("http://localhost:8080/", logInService.getToken());
-        requestService.addEventListener(this);
+        this.eventService = new EventService("http://localhost:8080/", logInService.getToken(), eventRepository);
+        eventService.addEventListener(this);
         startEventPolling();
     }
 
@@ -82,7 +92,7 @@ public class DccController implements EventListener {
     public void startEventPolling(){
         eventPollingTimer.schedule(new TimerTask() {
             public void run() {
-                requestService.GET_AllActiveEvents();
+                eventService.GET_AllActiveEvents();
             }
         }, 0, 1000 * 5);
 

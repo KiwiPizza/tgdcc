@@ -45,7 +45,7 @@ public class SessionService {
             keepSessionAlive();
             LOGGER.info("Login established");
         } catch (NullPointerException e){
-            LOGGER.error("Could not access token! ..however you may need to try again", e.getCause());
+            LOGGER.error("Could not access token! ..however you may need to try again and ry to fix: {}", e.getMessage());
         }
         }
 

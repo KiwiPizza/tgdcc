@@ -1,10 +1,14 @@
 package com.app.tgdcc.dccutils;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.Entity;
 
+@Entity
 public class DccEvent {
+
+    @javax.persistence.Id
     @JsonProperty("EventId")
-    private int eventId;
+    private Integer eventId;
 
     @JsonProperty("State")
     private String eventState;
@@ -15,23 +19,50 @@ public class DccEvent {
     @JsonProperty("Cause")
     private String eventCause;
 
+    @JsonProperty("Id")
+    private String IdInternal;
+
     public DccEvent() {
     }
 
-    public int getEventId() {
+    public Integer getEventId() {
         return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
     }
 
     public String getEventState() {
         return eventState;
     }
 
+    public void setEventState(String eventState) {
+        this.eventState = eventState;
+    }
+
     public String getEventCategory() {
         return eventCategory;
     }
 
+    public void setEventCategory(String eventCategory) {
+        this.eventCategory = eventCategory;
+    }
+
     public String getEventCause() {
         return eventCause;
+    }
+
+    public void setEventCause(String eventCause) {
+        this.eventCause = eventCause;
+    }
+
+    public String getIdInternal() {
+        return IdInternal;
+    }
+
+    public void setIdInternal(String idInternal) {
+        IdInternal = idInternal;
     }
 
     //Example

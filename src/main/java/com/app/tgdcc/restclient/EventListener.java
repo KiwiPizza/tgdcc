@@ -6,6 +6,6 @@ import com.app.tgdcc.dccutils.DccEvent;
 
 public interface EventListener {
 
-    void eventsReceived(DccEvent dccEvent);
+    void eventReceived(DccEvent dccEvent);
 
 }
