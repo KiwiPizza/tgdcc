@@ -40,7 +40,7 @@ public class SessionService {
 
     public void POST_login(){
         try {
-            TokenResponse response = restTemplate.postForObject(host + "api/token", request, TokenResponse.class);
+            TokenResponse response = restTemplate.postForObject(host + "/api/token", request, TokenResponse.class);
             this.token = response.access_token;
             keepSessionAlive();
             LOGGER.info("Login established");
@@ -53,7 +53,7 @@ public class SessionService {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Authorization", "Bearer " + getToken());
         heartBeatTimer.cancel();
-        LOGGER.info("Logout successful, status: {} ", restTemplate.exchange(host+"api/token", HttpMethod.DELETE,
+        LOGGER.info("Logout successful, status: {} ", restTemplate.exchange(host+"/api/token", HttpMethod.DELETE,
                new HttpEntity<>(null,httpHeaders),String.class).getStatusCode());
     }
 
@@ -66,7 +66,7 @@ public class SessionService {
             public void run() {
                 HttpHeaders httpHeaders = new HttpHeaders();
                 httpHeaders.set("Authorization", "Bearer " + getToken());
-                LOGGER.info("Keep session alive: " + restTemplate.exchange(host+ "api/heartbeat" ,
+                LOGGER.info("Keep session alive: " + restTemplate.exchange(host+ "/api/heartbeat" ,
                         HttpMethod.POST,new HttpEntity<>(null,httpHeaders),String.class).getStatusCode());
             }
         }, 0, 1000 * 60);

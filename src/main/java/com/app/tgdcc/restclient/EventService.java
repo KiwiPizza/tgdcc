@@ -5,6 +5,11 @@ import com.app.tgdcc.databaseconfig.EventRepository;
 import com.app.tgdcc.dccutils.DccEvent;
 import com.app.tgdcc.dccutils.DccEventList;
 import com.app.tgdcc.dccutils.DccTypes;
+import com.microsoft.signalr.HubConnection;
+import com.microsoft.signalr.HubConnectionBuilder;
+import com.microsoft.signalr.TransportEnum;
+import io.reactivex.Completable;
+import io.reactivex.Single;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
@@ -13,9 +18,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import javax.swing.event.ListDataEvent;
+import javax.net.ssl.SSLHandshakeException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -32,6 +36,21 @@ public class EventService {
         this.accessToken = accessToken;
         this.eventRepository = eventRepository;
 
+        HubConnection hubConnection;
+
+        try {
+           hubConnection = HubConnectionBuilder.create(host).withAccessTokenProvider(Single.defer(()->{
+               return Single.just("Bearer " + accessToken);
+            })).build();
+            hubConnection.start().blockingAwait();
+           hubConnection.on("/api/sr/eventssubscriptions/" + hubConnection.getConnectionId(), System.out::println,String.class);
+
+           System.out.println(hubConnection.getConnectionState());
+
+       } catch (Exception e){
+           LOGGER.error("Its not working {}", e.getMessage());
+       }
+
     }
 
     public void addEventListener(EventListener eventListener){
@@ -45,7 +64,7 @@ public class EventService {
     }
 
     public void GET_AllActiveEvents(){
-        String uri = "api/events";
+        String uri = "/api/events";
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Authorization", "Bearer " + accessToken);
         ResponseEntity<DccEventList> response = restTemplate.exchange(host + uri, HttpMethod.GET, new HttpEntity<>(null,httpHeaders), DccEventList.class);
