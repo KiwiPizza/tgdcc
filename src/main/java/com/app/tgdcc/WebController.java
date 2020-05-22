@@ -23,10 +23,6 @@ public class WebController {
     @Autowired
     public WebController(DccController dccController){
         this.dccController = dccController;
-
-        //TODO Remove
-        dccController.startService();
-        LOGGER.info("Start event service");
     }
 
     @GetMapping("/getEvents")

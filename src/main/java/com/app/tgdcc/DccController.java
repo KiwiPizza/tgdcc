@@ -45,10 +45,10 @@ public class DccController implements EventListener {
     }
 
     public void startService(){
-        this.logInService = new SessionService("https://www.desigoccecosystem.com/WebService","Training0520", "Training");
+        this.logInService = new SessionService("http://localhost:8080","cc", "cc");
         logInService.POST_login();
         loadTelegramAPI();
-        this.eventService = new EventService("https://www.desigoccecosystem.com/WebService", logInService.getToken(), eventRepository);
+        this.eventService = new EventService("http://localhost:8080", logInService.getToken(), eventRepository);
         eventService.addEventListener(this);
         startEventPolling();
     }

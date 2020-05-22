@@ -42,10 +42,13 @@ public class EventService {
            hubConnection = HubConnectionBuilder.create(host).withAccessTokenProvider(Single.defer(()->{
                return Single.just("Bearer " + accessToken);
             })).build();
-            hubConnection.start().blockingAwait();
-           hubConnection.on("/api/sr/eventssubscriptions/" + hubConnection.getConnectionId(), System.out::println,String.class);
 
-           System.out.println(hubConnection.getConnectionState());
+            hubConnection.start().blockingAwait();
+            System.out.println(hubConnection.getConnectionState() + " " +hubConnection.getConnectionId());
+
+            hubConnection.on("/api/sr/eventssubscriptions/" + hubConnection.getConnectionId(), System.out::println,String.class);
+
+
 
        } catch (Exception e){
            LOGGER.error("Its not working {}", e.getMessage());
